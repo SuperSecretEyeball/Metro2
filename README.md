@@ -63,7 +63,7 @@ favorite songs. No other music player has this feature.
 -  Driving Mode
 -  Headset/Bluetooth support
 -  Music duration filter
--  Android auto support
+-  Android Auto support
 -  Wallpaper accent picker on Android 8.1+
 -  Material You support on Android 12+
 -  Monet themed icon support on Android 13+
@@ -86,7 +86,7 @@ favorite songs. No other music player has this feature.
 -  Smart Auto Playlists - Recently played, most played and history
 -  Build your playlist on the go
 
-We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
+We are trying our best to bring you the best user experience. The app is regularly updated for bug fixes and new features.
 
 ## 🗂️ License
 
