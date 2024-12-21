@@ -18,6 +18,9 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import code.name.monkey.retromusic.App
 import code.name.monkey.retromusic.Constants
 import code.name.monkey.retromusic.R
 import code.name.monkey.retromusic.databinding.FragmentAboutBinding
@@ -34,7 +37,7 @@ class AboutFragment : Fragment(R.layout.fragment_about), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAboutBinding.bind(view)
-        binding.aboutContent.cardRetroInfo.version.setSummary(getAppVersion())
+        binding.aboutContent.cardOther.version.setSummary(getAppVersion())
         setUpView()
 
         binding.aboutContent.root.applyInsetter {
