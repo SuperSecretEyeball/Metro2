@@ -16,7 +16,7 @@ android {
 
         applicationId 'io.github.muntashirakon.Music'
         versionCode 10621
-        versionName '6.2.1'
+        versionName '6.3.0'
 
         multiDexEnabled true
     }
