@@ -315,11 +315,6 @@ object PreferenceUtil {
             putBoolean(DESATURATED_COLOR, value)
         }
 
-    val isGapLessPlayback
-        get() = sharedPreferences.getBoolean(
-            GAP_LESS_PLAYBACK, false
-        )
-
     val isAdaptiveColor
         get() = sharedPreferences.getBoolean(
             ADAPTIVE_COLOR_APP, false
