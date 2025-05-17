@@ -15,7 +15,7 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         applicationId 'io.github.muntashirakon.Music'
-        versionCode 10621
+        versionCode 10630
         versionName '6.3.0'
 
         multiDexEnabled true
