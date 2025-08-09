@@ -132,6 +132,7 @@ class MainActivity : AbsSlidingMusicPanelActivity() {
         handlePlaybackIntent(intent)
     }
 
+    @Suppress("deprecation")
     private fun handlePlaybackIntent(intent: Intent) {
         lifecycleScope.launch(IO) {
             val uri: Uri? = intent.data
