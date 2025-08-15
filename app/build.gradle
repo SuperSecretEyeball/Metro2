@@ -18,15 +18,29 @@ android {
         versionCode 10650
         versionName '6.5.0'
 
-        multiDexEnabled true
+        buildConfigField("String", "GOOGLE_PLAY_LICENSING_KEY", "\"${getProperty(getProperties('../public.properties'), 'GOOGLE_PLAY_LICENSE_KEY')}\"")
+    }
+    def signingProperties = getProperties('retro.properties')
+    def theSigningConfig
+    if (signingProperties != null) {
+        theSigningConfig = signingConfigs.create("release") {
+            storeFile file(getProperty(signingProperties, 'storeFile'))
+            keyAlias getProperty(signingProperties, 'keyAlias')
+            storePassword getProperty(signingProperties, 'storePassword')
+            keyPassword getProperty(signingProperties, 'keyPassword')
+        }
+    } else {
+        theSigningConfig = signingConfigs.debug
     }
     buildTypes {
         release {
             shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig theSigningConfig
         }
         debug {
+            signingConfig theSigningConfig
             applicationIdSuffix '.debug'
             versionNameSuffix ' DEBUG'
         }
@@ -61,6 +75,20 @@ android {
     }
 }
 
+def getProperties(String fileName) {
+    Properties properties = new Properties()
+    def file = rootProject.file(fileName)
+    if (file.exists()) {
+        file.withInputStream { stream -> properties.load(stream) }
+    } else {
+        properties = null
+    }
+    return properties
+}
+
+static def getProperty(Properties properties, String name) {
+    return properties?.getProperty(name) ?: "$name missing"
+}
 
 dependencies {
     implementation project(':appthemehelper')
