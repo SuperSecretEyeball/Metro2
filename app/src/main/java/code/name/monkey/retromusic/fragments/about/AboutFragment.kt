@@ -18,9 +18,6 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
-import code.name.monkey.retromusic.App
 import code.name.monkey.retromusic.Constants
 import code.name.monkey.retromusic.R
 import code.name.monkey.retromusic.databinding.FragmentAboutBinding
@@ -32,18 +29,18 @@ import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 class AboutFragment : Fragment(R.layout.fragment_about), View.OnClickListener {
     private var _binding: FragmentAboutBinding? = null
-    private val binding get() = _binding!!
+    private val binding
+        get() = _binding!!
+    private val libraryViewModel by activityViewModel<LibraryViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAboutBinding.bind(view)
-        binding.aboutContent.cardOther.version.setSummary(getAppVersion())
+        binding.aboutContent.cardRetroInfo.version.setSummary(getAppVersion())
         setUpView()
 
         binding.aboutContent.root.applyInsetter {
-            type(navigationBars = true) {
-                padding(vertical = true)
-            }
+            type(navigationBars = true) { padding(vertical = true) }
         }
     }
 
@@ -52,6 +49,7 @@ class AboutFragment : Fragment(R.layout.fragment_about), View.OnClickListener {
         binding.aboutContent.cardRetroInfo.faqLink.setOnClickListener(this)
         binding.aboutContent.cardRetroInfo.appTranslation.setOnClickListener(this)
         binding.aboutContent.cardRetroInfo.bugReportLink.setOnClickListener(this)
+
         binding.aboutContent.cardRetroInfo.changelog.setOnClickListener(this)
         binding.aboutContent.cardRetroInfo.openSource.setOnClickListener(this)
     }
@@ -69,7 +67,12 @@ class AboutFragment : Fragment(R.layout.fragment_about), View.OnClickListener {
 
     private fun getAppVersion(): String {
         return try {
-            requireActivity().packageManager.getPackageInfo(requireActivity().packageName, 0).versionName
+            val isPro = "Pro"
+            val packageInfo =
+                    requireActivity()
+                            .packageManager
+                            .getPackageInfo(requireActivity().packageName, 0)
+            "${packageInfo.versionName} $isPro"
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
             "0.0.0"
