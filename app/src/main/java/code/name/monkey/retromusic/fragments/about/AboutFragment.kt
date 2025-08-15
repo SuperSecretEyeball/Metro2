@@ -67,12 +67,11 @@ class AboutFragment : Fragment(R.layout.fragment_about), View.OnClickListener {
 
     private fun getAppVersion(): String {
         return try {
-            val isPro = "Pro"
             val packageInfo =
                     requireActivity()
                             .packageManager
                             .getPackageInfo(requireActivity().packageName, 0)
-            "${packageInfo.versionName} $isPro"
+            "${packageInfo.versionName}"
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
             "0.0.0"
