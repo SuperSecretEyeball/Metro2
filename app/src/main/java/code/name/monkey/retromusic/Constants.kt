@@ -23,7 +23,7 @@ object Constants {
     const val TELEGRAM_CHANGE_LOG = "https://t.me/AppManagerChannel"
     const val USER_PROFILE = "profile.jpg"
     const val USER_BANNER = "banner.jpg"
-    const val FAQ_LINK = "https://github.com/MuntashirAkon/Metro/blob/master/FAQ.md"
+    const val FAQ_LINK = "https://github.com/RetroMusicPlayer/RetroMusicPlayer/blob/master/FAQ.md"
 
     const val IS_MUSIC =
         MediaStore.Audio.AudioColumns.IS_MUSIC + "=1" + " AND " + MediaStore.Audio.AudioColumns.TITLE + " != ''"
@@ -66,8 +66,6 @@ const val SHOW_WHEN_LOCKED = "show_when_locked"
 const val TOGGLE_HOME_BANNER = "toggle_home_banner"
 const val NOW_PLAYING_SCREEN_ID = "now_playing_screen_id"
 const val CAROUSEL_EFFECT = "carousel_effect"
-const val COLORED_NOTIFICATION = "colored_notification"
-const val CLASSIC_NOTIFICATION = "classic_notification"
 const val ALBUM_ART_ON_LOCK_SCREEN = "album_art_on_lock_screen"
 const val BLURRED_ALBUM_ART = "blurred_album_art"
 const val NEW_BLUR_AMOUNT = "new_blur_amount"

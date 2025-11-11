@@ -85,21 +85,6 @@ class DeleteSongsDialog : DialogFragment() {
         }
     }
 
-    fun deleteSongs(songs: List<Song>) {
-        CoroutineScope(Dispatchers.IO).launch {
-            dismiss()
-            MusicUtil.deleteTracks(requireActivity(), songs, null, null)
-            reloadTabs()
-        }
-    }
-
-    private fun reloadTabs() {
-        libraryViewModel.forceReload(ReloadType.Songs)
-        libraryViewModel.forceReload(ReloadType.HomeSections)
-        libraryViewModel.forceReload(ReloadType.Artists)
-        libraryViewModel.forceReload(ReloadType.Albums)
-    }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         libraryViewModel = activity?.getViewModel() as LibraryViewModel
         val songs = extraNotNull<List<Song>>(EXTRA_SONG).value
@@ -166,5 +151,20 @@ class DeleteSongsDialog : DialogFragment() {
                     }
                 }
         }
+    }
+
+    fun deleteSongs(songs: List<Song>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            dismiss()
+            MusicUtil.deleteTracks(requireActivity(), songs, null, null)
+            reloadTabs()
+        }
+    }
+
+    private fun reloadTabs() {
+        libraryViewModel.forceReload(ReloadType.Songs)
+        libraryViewModel.forceReload(ReloadType.HomeSections)
+        libraryViewModel.forceReload(ReloadType.Artists)
+        libraryViewModel.forceReload(ReloadType.Albums)
     }
 }
