@@ -20,7 +20,7 @@ android {
             useSupportLibrary = true
         }
 
-        applicationId = namespace
+        applicationId = "io.github.muntashirakon.Music"
         versionCode = 10650
         versionName = "6.5.0"
 
