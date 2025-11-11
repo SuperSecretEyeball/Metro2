@@ -277,8 +277,6 @@
     <string name="not_recently_played">Tidak baru-baru ini dimainkan</string>
     <string name="nothing_to_scan">Tidak ada yang dipindai.</string>
     <string name="nothing_to_see">Tidak ada yang bisa dilihat</string>
-    <string name="notification">Notifikasi</string>
-    <string name="notification_settings_summary">Sesuaikan gaya notifikasi</string>
     <string name="now_playing">Sedang diputar</string>
     <string name="now_playing_queue">Sekarang memutar antrean</string>
     <string name="now_playing_summary">Sesuaikan tampilan layar yang sedang diputar</string>
@@ -343,7 +341,6 @@
     <string name="pref_summary_bluetooth_playback">Mainkan segera setelah terhubung ke perangkat bluetooth</string>
     <string name="pref_summary_blurred_album_art">Mengaburkan sampul album di layar kunci. Dapat menyebabkan masalah dengan aplikasi dan widget pihak ketiga</string>
     <string name="pref_summary_carousel_effect">Efek korsel untuk sampul album di layar yang sedang diputar. Perhatikan bahwa tema Kartu dan Kartu Blur tidak akan berfungsi</string>
-    <string name="pref_summary_classic_notification">Pakai desain notifikasi klasik</string>
     <string name="pref_summary_colored_app">Warna latar belakang dan tombol kontrol berubah sesuai dengan sampul album dari layar yang sedang diputar</string>
     <string name="pref_summary_colored_app_shortcuts">Warnai pintasan aplikasi dalam warna aksen. Setiap kali Anda mengubah warna, harap aktifkan ini untuk diterapkan</string>
     <string name="pref_summary_colored_notification">"Mewarnai notifikasi di sampul album\u2019 dengan warna cerah"</string>
@@ -384,7 +381,6 @@
     <string name="pref_title_bluetooth_playback">Pemutaran Bluetooth</string>
     <string name="pref_title_blurred_album_art">Buramkan sampul album</string>
     <string name="pref_title_circle_button">Tombol putar melingkar</string>
-    <string name="pref_title_classic_notification">Desain notifikasi klasik</string>
     <string name="pref_title_colored_app">Warna Adaptif</string>
     <string name="pref_title_colored_notification">Notifikasi berwarna</string>
     <string name="pref_title_cross_fade">Crossfade (Beta)</string>
@@ -448,6 +444,7 @@
     <string name="restored_previous_purchase_please_restart">Memulihkan pembelian sebelumnya. Silakan mulai ulang aplikasi untuk menggunakan semua fitur.</string>
     <string name="restored_previous_purchases">Memulihkan pembelian sebelumnya.</string>
     <string name="restoring_purchase">Memulihkan pembelian…</string>
+    <string name="billing_error">An error occurred while communicating with Google Play Billing</string>
     <string name="retro_music_player">Retro Music Player</string>
     <string name="retro_music_pro">Retro Music Pro</string>
     <string name="ringtone_summary">Aplikasi memerlukan izin untuk mengakses setelan perangkat Anda untuk mengatur musik sebagai Nada Dering</string>
@@ -564,4 +561,8 @@
     <string name="your_account_data_is_only_used_for_authentication">Data akun Anda hanya digunakan untuk autentikasi.</string>
     <string name="could_not_write_tags_to_file">Gagal menambahkan tags!</string>
     <string name="sleep_timer_no_permission">Tidak ada izin untuk menjadwalkan alarm, harap izinkan Retro Music.</string>
+    <string name="scanning_folders_files">Scanning folders and files…</string>
+    <string name="scan_complete">Scan complete: %1$d media items found.</string>
+    <string name="pref_save_last_directory_summary">When switching to folder view, restore last used directory</string>
+    <string name="pref_save_last_directory_title">Save Last Directory</string>
 </resources>

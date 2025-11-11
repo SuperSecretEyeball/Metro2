@@ -209,8 +209,6 @@ class PlayingNotification(
         )
     }
 
-    abstract fun clear(context: Context)
-
     companion object {
         internal const val NOTIFICATION_CHANNEL_ID = "playing_notification"
         const val NOTIFICATION_ID = 1

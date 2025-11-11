@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
 
         vectorDrawables {
             useSupportLibrary = true
@@ -166,7 +166,6 @@ dependencies {
     implementation(libs.chrisbanes.insetter)
 
 
-    implementation(libs.org.eclipse.egit.github.core)
     implementation(libs.jaudiotagger)
     implementation(libs.slidableactivity)
     implementation(libs.material.intro)
