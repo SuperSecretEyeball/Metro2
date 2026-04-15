@@ -41,3 +41,6 @@ app/normal/release/
 /app/release/
 
 .kotlin
+
+*.jks
+keystore.properties
