@@ -11,41 +11,52 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout source
+      # 1. Checkout repo
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Setup Java
+      # 2. Setup Java
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
-      # Setup Gradle cache
+      # 3. Setup Gradle cache
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      # Decode keystore
+      # 4. Decode keystore safely
       - name: Decode Keystore
         run: |
           echo "${{ secrets.SIGNING_KEYSTORE_BASE64 }}" | base64 -d > release.jks
 
-      # Export signing secrets
+      # 5. Export signing variables
       - name: Set signing env
         run: |
           echo "SIGNING_STORE_PASSWORD=${{ secrets.SIGNING_STORE_PASSWORD }}" >> $GITHUB_ENV
           echo "SIGNING_KEY_PASSWORD=${{ secrets.SIGNING_KEY_PASSWORD }}" >> $GITHUB_ENV
           echo "SIGNING_KEY_ALIAS=${{ secrets.SIGNING_KEY_ALIAS }}" >> $GITHUB_ENV
 
-      # Build ONLY normal release APK
+      # 6. Determine version safely (fixes manual-run crash)
+      - name: Set version tag
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            echo "RELEASE_TAG=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+          else
+            echo "RELEASE_TAG=manual-build" >> $GITHUB_ENV
+          fi
+
+      # 7. Build ONLY normal release APK
       - name: Build APK
         run: ./gradlew app:assembleNormalRelease
 
-      # Create GitHub Release and upload APK
+      # 8. Create GitHub Release (safe for manual + tag runs)
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: Metro ${{ env.RELEASE_TAG }}
           generate_release_notes: true
           files: |
             app/build/outputs/apk/normal/release/*.apk
